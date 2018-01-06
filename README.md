@@ -24,7 +24,6 @@ chat-space
 |image|string||
 |user_id|reference|null: false, foreign_key: true|
 |group_id|reference|null: false, foreign_key: true|
-|created_at|timestamp|null: false|
 
 #### Association
 - belongs_to :user
