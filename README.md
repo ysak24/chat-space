@@ -5,11 +5,10 @@ chat-space
 ### usersテーブル
 |Column|Type|Options|
 |:-----|:---|:------|
-|id|INTEGER|index: true, unique: true, null:false|
-|name|VARCHAR|null:false|
+|id|INTEGER|index: true, primary_key: true, null:false|
+|name|VARCHAR|index: true, unique: true,null:false|
 |email|VARCHAR|null: false|
 |password|VARCHAR|null:false|
-
 
 #### Association
 - has_many :groups, through: members
@@ -20,7 +19,7 @@ chat-space
 ### messagesテーブル
 |Column|Type|Options|
 |:-----|:---|:------|
-|id|INTEGER|index: true, unique: true, null:false|
+|id|INTEGER|index: true, primary_key: true, null:false|
 |text|VARCHAR|null: false|
 |image|VARCHAR||
 |user_id|INTEGER|null: false, foreign_key: true|
@@ -35,7 +34,7 @@ chat-space
 ### groupsテーブル
 |Column|Type|Options|
 |:-----|:---|:------|
-|id|INTEGER|index: true, unique: true, null:false|
+|id|INTEGER|index: true, primary_key: true, null:false|
 |title|VARCHAR|null: false|
 
 #### Association
@@ -47,7 +46,7 @@ chat-space
 ### membersテーブル
 |Column|Type|Options|
 |:-----|:---|:------|
-|id|INTEGER|index: true, unique: true, null:false|
+|id|INTEGER|index: true, primary_key: true, null:false|
 |user_id|INTEGER|null: false, foreign_key: true|
 |group_id|INTEGER|null: false, foreign_key: true|
 
