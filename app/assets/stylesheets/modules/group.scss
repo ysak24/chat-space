@@ -2,10 +2,9 @@
   width: 980px;
   margin: 60px auto;
   padding: 40px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: $white;
+  border: 1px solid $form-bg;
   border-radius: 5px;
-  box-sizing: border-box;
 
   h1 {
     letter-spacing: 2px;
@@ -17,13 +16,13 @@
   .chat-group-form__errors {
     margin: 30px 0;
     padding: 20px 40px;
-    border: 1px solid #ddd;
+    border: 1px solid $form-bg;
     border-radius: 2px;
     text-align: center;
 
     h2 {
       margin-bottom: 10px;
-      color: #f05050;
+      color: $group-f;
       font-size: 14px;
     }
 
@@ -53,7 +52,6 @@
       width: 30%;
       padding-right: 20px;
       padding-left: 20px;
-      box-sizing: border-box;
     }
 
     .chat-group-form__field--right {
@@ -73,7 +71,6 @@
       width: 100%;
       line-height: 30px;
       padding: 10px 15px;
-      box-sizing: border-box;
     }
   }
 
@@ -81,7 +78,7 @@
     padding: 0 15px;
     line-height: 50px;
     font-size: 14px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $form-bg;
     &:after {
       content: "";
       clear: both;
@@ -98,11 +95,11 @@
       cursor: pointer;
 
       &.chat-group-user__btn--add {
-        color: #38aef0;
+        color: $chatspace-main;
       }
 
       &.chat-group-user__btn--remove {
-        color: #f05050;
+        color: $group-f;
       }
     }
   }
@@ -110,8 +107,8 @@
   .chat-group-form__action-btn {
     display: inline-block;
     padding: 12px 20px;
-    color: #fff;
-    background-color: #38aef0;
+    color: $white;
+    background-color: $chatspace-main;
     border: 0;
   }
 }
