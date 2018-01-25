@@ -4,7 +4,7 @@ $(function(){
     if (message.image) {
       post_image = `<img class = "image_size", src="${ message.image }">`;
     }
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${ message.name }
@@ -31,12 +31,13 @@ $(function(){
     var url = $(this).attr('action');
     $.ajax({
       url: url,
-      type: "POST",
+      type: 'POST',
       data: formData,
       dataType: 'json',
       processData: false,
       contentType: false
     })
+
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html);
@@ -47,5 +48,32 @@ $(function(){
       alert('error');
     })
     return false;
+  })
+
+  var UpdatingProcess = function(){
+    var id = $('.message').last().data('message-id');
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      data: {id: id},
+      dataType: "json"
+    })
+
+    .done(function(messages){
+      messages.forEach(function(message){
+        var html = buildHTML(message);
+        $('.messages').append(html);
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      })
+    })
+    .fail(function(){
+      alert('error');
+    });
+  }
+
+  $(function(){
+    if (location.href.match(/\/groups\/\d+\/messages/)){
+      setInterval(UpdatingProcess, 5000);
+    }
   })
 });
